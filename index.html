@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Untuk Dia - My Special Muse ✨</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        /* CSS DASAR */
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; background-color: #fff5f7; }
+
+
+
+        /* NAVIGATION */
+
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; transition: 0.3s; }
+
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: #ff6b9d; text-decoration: none; }
+
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: 0.3s; position: relative;}
+
+        .nav-links a:hover { color: #ff6b9d; }
+
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: #ff6b9d; transition: width 0.3s; }
+
+        .nav-links a:hover::after { width: 100%; }
+
+
+
+        /* HERO SECTION */
+
+        .hero {
+
+            height: 100vh;
+
+            /* GANTI LINK GAMBAR LATAR BELAKANG HERO DI SINI (Contoh: Pemandangan) */
+
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+
+                        url('pemandangan.avif'); 
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-attachment: fixed;
+
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative;
+
+        }
+
+        .hero-content { z-index: 2; padding: 0 2rem; }
+
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 5rem); margin-bottom: 1rem; animation: fadeInUp 1s ease forwards; }
+
+        .hero-subtitle { font-size: 1.4rem; font-weight: 300; letter-spacing: 2px; animation: fadeInUp 1.5s ease forwards; }
+
+        .hero-photo {
+
+            width: 180px; height: 180px; border-radius: 50%; margin: 0 auto 1.5rem;
+
+            object-fit: cover; border: 4px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+            animation: float 4s ease-in-out infinite;
+
+        }
+
+
+
+        /* ANIMASI HATI MELAYANG */
+
+        .heart { position: absolute; color: rgba(255, 107, 157, 0.7); font-size: 1.5rem; pointer-events: none; animation: heartFloat 10s linear infinite; bottom: -10%; }
+
+        @keyframes heartFloat {
+
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+
+            10% { opacity: 1; }
+
+            90% { opacity: 1; }
+
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+
+        }
+
+
+
+        /* STYLING UMUM SECTION */
+
+        .section { padding: 100px 2rem; max-width: 1100px; margin: 0 auto; }
+
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; text-align: center; margin-bottom: 4rem; color: #c44569; position: relative; display: inline-block; left: 50%; transform: translateX(-50%);}
+
+        .section-title::after { content: '💖'; position: absolute; font-size: 1.2rem; top: -15px; right: -25px; }
+
+
+
+        /* ABOUT SECTION (BAGIAN YANG DIPERBAIKI) */
+
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+        
+
+        /* Wadah Gambar yang Diperbaiki */
+
+        .about-photo-container {
+
+            width: 100%;
+
+            height: 550px; /* Tinggi kotak gambar */
+
+            background-color: #f0f0f0; /* Warna background sementara */
+
+            border-radius: 20px;
+
+            overflow: hidden; /* Memotong gambar yang keluar kotak */
+
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+            border: 2px solid rgba(255, 107, 157, 0.1);
+
+        }
+
+
+
+        /* Gambar di dalam wadah (Inilah perbaikannya) */
+
+        .about-photo {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover; /* Gambar akan mengisi penuh kotak tanpa gepeng */
+
+            display: block;
+
+        }
+
+
+
+        .about-text { padding-top: 20px; }
+
+        .about-text h3 { color: #ff6b9d; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 600; }
+
+        .about-text p { font-size: 1.1rem; color: #555; margin-bottom: 1.5rem; }
+
+        .about-text ul { list-style: none; margin-top: 30px; border-top: 1px solid rgba(255, 107, 157, 0.2); padding-top: 20px;}
+
+        .about-text ul li { font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; }
+
+        .about-text ul li i { color: #ff6b9d; margin-right: 15px; font-size: 1.2rem; width: 20px; text-align: center;}
+
+
+
+        /* GALERI GRID */
+
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+
+        .gallery-item { 
+
+            height: 280px; background-size: cover; background-position: center; border-radius: 15px; 
+
+            cursor: pointer; transition: 0.4s; position: relative; overflow: hidden;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+        }
+
+        .gallery-item:hover { transform: scale(1.03) translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+
+        .gallery-overlay { 
+
+            position: absolute; inset: 0; background: rgba(196, 69, 105, 0.8); 
+
+            display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s;
+
+        }
+
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        .gallery-overlay i { font-size: 3rem; color: white; }
+
+
+
+        /* NOTES SECTION */
+
+        .notes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+
+        .note-card { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-left: 6px solid #ff6b9d; position: relative; overflow: hidden;}
+
+        .note-card::after { content: '✍️'; position: absolute; font-size: 3rem; opacity: 0.05; bottom: -10px; right: -10px; }
+
+        .note-card p { font-size: 1.1rem; color: #444; margin-bottom: 1rem; font-style: italic; }
+
+        .note-date { color: #ff6b9d; font-weight: 600; font-size: 0.9rem; letter-spacing: 1px; }
+
+
+
+        /* FOOTER / CONTACT */
+
+        .footer { background: #c44569; color: white; text-align: center; padding: 60px 2rem; }
+
+        .footer h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px; }
+
+        .footer p { font-weight: 300; opacity: 0.8; margin-bottom: 30px; }
+
+        .social-icons { font-size: 1.8rem; }
+
+        .social-icons a { color: white; margin: 0 15px; text-decoration: none; transition: 0.3s; }
+
+        .social-icons a:hover { opacity: 0.7; transform: scale(1.1); display: inline-block;}
+
+
+
+        /* ANIMASI UMUM */
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+
+
+        /* RESPONSIVE UNTUK HP */
+
+        @media (max-width: 768px) {
+
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+            .about-photo-container { height: 350px; }
+
+            .nav-links { display: none; }
+
+            .section { padding: 60px 1.5rem; }
+
+            .section-title { font-size: 2.2rem; }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#" class="logo">Intan</a> <ul class="nav-links">
+
+                <li><a href="#home">Home</a></li>
+
+                <li><a href="#about">About</a></li>
+
+                <li><a href="#gallery">Gallery</a></li>
+
+                <li><a href="#notes">Notes</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+            <a href="foto 6.jpeg" target="_blank">
+            <img src="foto 6.jpeg" alt="Foto Profil Dia" class="hero-photo">
+            </a>
+            <h1>Intan Nuraini</h1> <p class="hero-subtitle">My Eternal Muse ✨</p>
+
+            <p style="margin-top: 15px; font-weight: 300; opacity: 0.9; letter-spacing: 1px;">The woman who stole my heart</p>
+
+        </div>
+
+        <div id="heart-container"></div>
+
+    </section>
+
+
+
+    <section id="about" class="section">
+
+        <h2 class="section-title">Tentang Dia</h2>
+
+        <div class="about-grid">
+
+            
+
+            <div class="about-photo-container">
+    <a href="foto 4.jpeg" target="_blank">
+        <img src="foto 4.jpeg" alt="Sarah Amelia Candid" class="about-photo" style="cursor: pointer;">
+    </a>
+</div>
+
+
+            <div class="about-text">
+
+                <h3>Sinar Matahariku ☀️</h3>
+
+                <p>Bagiku, dia bukan hanya sekadar seseorang yang spesial. Dia adalah alasan di balik setiap senyum yang aku punya hari ini. Kecerdasannya dalam berpikir, cara dia tertawa lepas, dan hatinya yang begitu lembut membuatku selalu bersyukur memilikinya.</p>
+
+                <p>Dia punya cara unik untuk membuat hari yang biasa saja terasa luar biasa. Terimakasih sudah menjadi bagian terindah dalam perjalanan hidupku.</p>
+
+                
+
+                <ul>
+
+                    <li><i class="fas fa-heart"></i> <span><strong>Hobi:</strong> Baca Novel, Nonton Drakor & Tidur</span></li>
+
+                    <li><i class="fas fa-star"></i> <span><strong>Impian:</strong> Ingin Sukses, Ke Mekkah, Banggain Orang Tua </span></li>
+
+                    <li><i class="fas fa-music"></i> <span><strong>Lagu Favorit:</strong> Melawan Restu - Mahalini</span></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="gallery" class="section" style="background-color: #fff; border-radius: 40px;">
+
+        <h2 class="section-title">Kenangan Kita 📸</h2>
+
+        <div class="gallery">
+
+            <a href="foto 1.jpeg" target="_blank">
+    <div class="gallery-item" style="background-image: url('foto 1.jpeg')">
+        <div class="gallery-overlay"><i class="fas fa-heart"></i></div>
+    </div>
+    </a>
+
+           <a href="foto 3.jpeg" target="_blank">
+    <div class="gallery-item" style="background-image: url('foto 3.jpeg')">
+        <div class="gallery-overlay"><i class="fas fa-heart"></i></div>
+    </div>
+</a>
+
+           <a href="foto 2.jpeg" target="_blank">
+    <div class="gallery-item" style="background-image: url('foto 2.jpeg')">
+        <div class="gallery-overlay"><i class="fas fa-heart"></i></div>
+    </div>
+</a>
+
+           <a href="foto 5.jpeg" target="_blank">
+    <div class="gallery-item" style="background-image: url('foto 5.jpeg')">
+        <div class="gallery-overlay"><i class="fas fa-heart"></i></div>
+    </div>
+</a>
+
+            <a href="foto 7.jpeg" target="_blank">
+    <div class="gallery-item" style="background-image: url('foto 7.jpeg')">
+        <div class="gallery-overlay"><i class="fas fa-heart"></i></div>
+    </div>
+</a>
+
+          <a href="foto 8.jpeg" target="_blank">
+    <div class="gallery-item" style="background-image: url('foto 8.jpeg')">
+        <div class="gallery-overlay"><i class="fas fa-heart"></i></div>
+    </div>
+</a>  
+
+        </div>
+
+    </section>
+
+
+
+    <section id="notes" class="section">
+
+        <h2 class="section-title">Pesan Singkat 💌</h2>
+
+        <div class="notes-grid">
+
+            <div class="note-card">
+
+                <p>"Terima kasih sudah selalu sabar menghadapiku. Kamu adalah rumah ternyaman tempatku pulang."</p>
+
+                <div class="note-date">— Teman BestFriend</div>
+
+            </div>
+
+            <div class="note-card">
+
+                <p>"Senyummu adalah pemandangan favoritku, lebih indah dari sunset di belahan dunia mana pun."</p>
+
+                <div class="note-date">— Bahagia</div>
+
+            </div>
+
+             <div class="note-card">
+
+                <p>"Aku tidak bisa berjanji untuk menyelesaikan semua masalahmu, tapi aku berjanji kamu tidak akan menghadapinya sendirian."</p>
+
+                <div class="note-date">— Harapan</div>
+
+            </div>
+
+            <div class="note-card">
+                
+                <p>"Aku tidak tahu apa yang akan terjadi di masa depan, tapi aku tahu aku ingin melaluinya bersamamu, tangan di dalam tangan."</p>
+                
+                <div class="note-date">— Masa Depan</div>
+        </div>
+
+        </div>
+
+    </section>
+
+
+
+    <footer class="footer">
+
+        <h3>Always In My Heart</h3>
+
+        <p>Dibuat dengan seluruh ❤️ oleh seseorang yang mengagumimu</p>
+
+        <div class="social-icons">
+
+            <a href="https://www.instagram.com/intanra_ini?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+
+            <a href="https://wa.me/6283169463248" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+        </div>
+
+    </footer>
+
+
+
+    <script>
+
+        // Efek Floating Hearts (Hati Melayang)
+
+        function createHeart() {
+
+            const container = document.getElementById('heart-container');
+
+            if(!container) return; // Keamanan jika container tidak ada
+
+            const heart = document.createElement('i');
+
+            heart.classList.add('fas', 'fa-heart', 'heart');
+
+            heart.style.left = Math.random() * 100 + 'vw'; // Posisi acak horizontal
+
+            heart.style.animationDuration = Math.random() * 3 + 5 + 's'; // Kecepatan acak
+
+            heart.style.fontSize = Math.random() * 1 + 0.8 + 'rem'; // Ukuran acak
+
+            heart.style.opacity = Math.random() * 0.5 + 0.2; // Transparansi acak
+
+            container.appendChild(heart);
+
+            
+
+            // Hapus elemen setelah animasi selesai agar tidak memberatkan browser
+
+            setTimeout(() => { heart.remove(); }, 8000);
+
+        }
+
+        // Jalankan fungsi setiap 400ms
+
+        setInterval(createHeart, 400);
+
+
+
+        // Smooth Scroll untuk Navigasi
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+            anchor.addEventListener('click', function (e) {
+
+                const targetId = this.getAttribute('href');
+
+                if(targetId === '#') return; // Abaikan jika cuma #
+
+                e.preventDefault();
+
+                const targetElement = document.querySelector(targetId);
+
+                if(targetElement){
+
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
